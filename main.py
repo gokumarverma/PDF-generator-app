@@ -10,7 +10,8 @@ for index, row in df.iterrows():
     pdf.set_font(family='Times', style='B', size=12)
     pdf.set_text_color(r=100, g=100, b=100)
     pdf.cell(w=0, h=12, txt=row["Topic"], border=0, ln=1, align='L')
-    pdf.line(10, 20, 200, 20)
+    for y in range(20,298,10):
+        pdf.line(10, y, 200, y)
 
     pdf.ln(265)
     pdf.set_font(family='Times', style='I', size=8)
@@ -24,5 +25,8 @@ for index, row in df.iterrows():
         pdf.set_font(family='Times', style='I', size=8)
         pdf.set_text_color(r=100, g=100, b=100)
         pdf.cell(w=0, h=12, txt=row["Topic"], border=0, ln=1, align='R')
+        y = 20
+        for y in range(20, 298, 10):
+            pdf.line(10, y, 200, y)
 
 pdf.output('test.pdf')
